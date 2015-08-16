@@ -108,20 +108,7 @@ server.route({
     }
 });
 
-//the put call is still not working for updating database
-//server.route({
-//    method: 'PUT',
-//    path: '/todos/{id}',
-//    handler: function(req, res, next) {
-//        Task.findByIdAndUpdate(req.params.id, req.body, function(err, task){
-//            return Task.find({}).exec(function(err, task){
-//                if(err) throw new Error(err);
-//                res(JSON.stringify(task));
-//            });
-//        });
-//    }
-//});
-
+//successfully updates task completion
 server.route({
     method: 'PUT',
     path: '/todos/{id}',
@@ -134,43 +121,6 @@ server.route({
         });
     }
 });
-
-
-
-
-
-//server.register({
-//    register: require('hapi-mongodb'),
-//    options: dbOpts
-//}, function (err) {
-//    if (err) {
-//        console.error(err);
-//        throw err;
-//    }
-//});
-
-//server.route( {
-//    "method"  : "GET",
-//    "path"    : "/users/{id}",
-//    "handler" : usersHandler
-//});
-
-
-//function usersHandler ( request ) {
-//
-//
-//    var db = this.server.plugins['hapi-mongodb'].db;
-//    var ObjectID = this.server.plugins['hapi-mongodb'].objectId;
-//
-//    db.collection('users').findOne({  "_id" : new ObjectID( request.params.id) }, function(err, result) {
-//
-//        if (err) return request.reply(Hapi.error.internal('Internal MongoDB error', err));
-//
-//        request.reply(result);
-//
-//    });
-//
-//};
 
 mongoDB.on('error', function(err){
     if(err){
