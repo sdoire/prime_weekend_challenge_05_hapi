@@ -1,3 +1,4 @@
+//not actually being used. For simplicty's sake, put all routes in app.js file
 var hapi = require('hapi');
 var path = require('path');
 var mongoose = require('mongoose');
