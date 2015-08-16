@@ -109,11 +109,24 @@ server.route({
 });
 
 //the put call is still not working for updating database
+//server.route({
+//    method: 'PUT',
+//    path: '/todos/{id}',
+//    handler: function(req, res, next) {
+//        Task.findByIdAndUpdate(req.params.id, req.body, function(err, task){
+//            return Task.find({}).exec(function(err, task){
+//                if(err) throw new Error(err);
+//                res(JSON.stringify(task));
+//            });
+//        });
+//    }
+//});
+
 server.route({
     method: 'PUT',
     path: '/todos/{id}',
     handler: function(req, res, next) {
-        Task.findByIdAndUpdate(req.params.id, req.body, function(err, task){
+        Task.findOneAndUpdate({_id: req.params.id}, req.payload, function (err, task) {
             return Task.find({}).exec(function(err, task){
                 if(err) throw new Error(err);
                 res(JSON.stringify(task));
@@ -121,6 +134,9 @@ server.route({
         });
     }
 });
+
+
+
 
 
 //server.register({
