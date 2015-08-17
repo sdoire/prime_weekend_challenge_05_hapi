@@ -1,3 +1,4 @@
+//for simplicity, put all routes in server/app.js; future projects would be done differently
 var Hapi = require('hapi');
 //var index = require('./routes/index');
 var Inert = require('inert');
